@@ -12,8 +12,8 @@ copy = img.copy()
 font = cv.FONT_HERSHEY_SIMPLEX
 
 # setting the 2 phrases taht should be added to the picture
-text1 = 'This is not a funny Meme,'
-text2 = 'but it is one! :)'
+text1 = 'This is not funny,'
+text2 = 'but a Meme!'
 
 # adding the phrases to the picture 
 if len(text1) > 0 and len(text2) >0:
@@ -26,9 +26,6 @@ if len(text1) > 0 and len(text2) >0:
     cv.putText(copy, text1, (textX1, textY1), font, 2, (0, 0, 0), 3)
     cv.putText(copy, text2, (textX2, textY2), font, 2, (0, 0, 0), 3)
     cv.imshow('Meme', copy)
-    cv.waitKey(0)
-    cv.destroyAllWindows()
-    cv.waitKey(1)
 
 
 # showing the Meme
