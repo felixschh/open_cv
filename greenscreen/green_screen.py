@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib import figure
 
 
-plt.figure(figsize=(20,15))
+# plt.figure(figsize=(20,15))
 # green_screen = cv.imread('/Users/felixschekerka/Desktop/computer_vision/greenscreen.png')
 background = cv.imread('greenscreen/mc_background.png')
 background = cv.cvtColor(background, cv.COLOR_BGR2RGB)
@@ -13,28 +13,14 @@ background = cv.cvtColor(background, cv.COLOR_BGR2RGB)
 mc_gs = cv.imread('greenscreen/minecraft_greenscreen.png')
 mc_gs = cv.cvtColor(mc_gs, cv.COLOR_BGR2RGB)
 
-
-# editing the background of dog to greenscreen
-
-# plt.imshow(background)
-# plt.imshow(dog)
-# plt.imshow(mc_gs)
-
-# print(mc_gs.shape)
-
-
-
 lower_green = np.array([0,100,0])
 upper_green = np.array([120, 255, 100])
 
 mask = cv.inRange(mc_gs, lower_green, upper_green)
 # plt.imshow(mask, cmap='gray')
 
-
 masked_image = np.copy(mc_gs)
 masked_image[mask != 0] = [0,0,0] # setting background to black
-# plt.imshow(masked_image)
-
 
 background_edit = background[0:370, 0:700]
 background_edit[mask == 0] = [0, 0, 0]
